@@ -44,7 +44,7 @@
         .section-title span { color:#fbbf24; }
         .section-sub { color:#475569; max-width:650px; margin-bottom:1.5rem; font-size:1rem; }
 
-        /* HERO – with bright image */
+        /* HERO – fixed image centering */
         .hero { min-height:85vh; display:flex; align-items:center; position:relative; background: linear-gradient(160deg, #0a1423 0%, #1a2a3a 50%, #0d1b2a 100%); overflow:hidden; border-radius:0 0 48px 48px; padding:60px 5%; }
         .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse at 30% 50%, rgba(251,191,36,0.10) 0%, transparent 70%); pointer-events:none; }
         .hero::after { content:''; position:absolute; bottom:-30%; right:-10%; width:60%; height:80%; background: radial-gradient(ellipse, rgba(34,197,94,0.04) 0%, transparent 70%); pointer-events:none; }
@@ -56,9 +56,20 @@
         .hero-stats div { text-align:center; }
         .hero-stats strong { font-size:2rem; font-weight:800; color:#fbbf24; display:block; }
         .hero-stats span { color:#94A3B8; font-size:0.9rem; }
-        .hero-img { position:relative; }
+
+        .hero-img {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
         .hero-img img {
             width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+            object-position: center;
             border-radius: 28px;
             box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5);
             border: 2px solid rgba(251,191,36,0.3);
@@ -124,12 +135,13 @@
             .hero { padding:40px 4%; min-height:auto; }
             .hero p { max-width:100%; }
             .hero-img img {
-                max-height: 320px;
-                object-fit: cover;
+                max-height: 280px;
                 border-radius: 20px;
-                width: 100%;
                 filter: brightness(1.15) contrast(1.05);
                 border: 2px solid rgba(251,191,36,0.4);
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
             }
         }
         @media(max-width:600px){
@@ -139,10 +151,13 @@
             .services-grid { grid-template-columns:1fr; }
             .testimonials-grid { grid-template-columns:1fr; }
             .hero-img img {
-                max-height: 240px;
+                max-height: 200px;
                 border-radius: 16px;
                 filter: brightness(1.2) contrast(1.05);
                 border: 2px solid rgba(251,191,36,0.5);
+                object-fit: cover;
+                object-position: center;
+                width: 100%;
             }
             .hero-stats { gap:1rem; flex-wrap:wrap; }
             .hero-stats div { flex:1; min-width:60px; }
@@ -192,7 +207,7 @@
             <div>
                 <div class="hero-badge"><i class="fas fa-bolt" style="margin-right:6px;"></i> Nigeria's Trusted Solar Partner</div>
                 <h1>Power Your World with <span class="highlight">Solar Energy</span></h1>
-                <p>GenNext Technologies delivers premium solar installations, inverter systems, and renewable energy solutions for homes, businesses, and communities across Nigeria.</p>
+                <p>GenNext Technologies delivers premium solar installations, inverter systems, we do more than install we sell service we maintanace. </p>
                 <div style="display:flex; gap:1rem; flex-wrap:wrap;">
                     <a href="projects.html" class="btn-primary"><i class="fas fa-arrow-right" style="margin-right:8px;"></i>Explore Projects</a>
                     <a href="https://wa.me/2347034303991" target="_blank" class="btn-outline"><i class="fab fa-whatsapp" style="margin-right:8px;"></i>Get a Quote</a>
