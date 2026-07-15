@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | GenNext Technologies Solar Reviews</title>
+    <meta name="description" content="Read what our customers say about GenNext Technologies. Share your solar installation experience with us and help others make the switch to clean energy.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="GenNext Technologies – Customer Reviews">
+    <meta property="og:description" content="Read real testimonials from our solar customers and share your own experience.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&auto=format">
+    <meta property="og:url" content="https://gennext.ng/testimonials">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:#F0F4F8; color:#0F172A; overflow-x:hidden; }
+        a { text-decoration:none; color:inherit; }
+
+        /* HEADER (same as home) */
+        header { background:rgba(10,20,35,0.97); backdrop-filter:blur(14px); position:sticky; top:0; z-index:1000; border-bottom:2px solid #fbbf24; padding:0.6rem 5%; }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        .logo { font-size:1.5rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; }
+        .logo span { color:#22C55E; }
+        .nav-links { display:flex; gap:1.8rem; list-style:none; align-items:center; flex-wrap:wrap; }
+        .nav-links a { color:#CBD5E1; font-weight:600; font-size:0.95rem; transition:0.3s; position:relative; }
+        .nav-links a:hover, .nav-links a.active { color:#fbbf24; }
+        .nav-links a.active::after { content:''; position:absolute; bottom:-6px; left:0; width:100%; height:2.5px; background:#fbbf24; border-radius:4px; }
+        .hamburger { display:none; background:none; border:none; font-size:2rem; color:#fbbf24; cursor:pointer; z-index:1020; }
+        .mobile-drawer { position:fixed; top:0; left:-280px; width:280px; height:100vh; background:#0a1423; z-index:1050; transition:left 0.35s cubic-bezier(0.2,0.9,0.4,1.1); box-shadow:5px 0 30px rgba(0,0,0,0.6); padding:2rem 1.5rem; display:flex; flex-direction:column; }
+        .mobile-drawer.open { left:0; }
+        .drawer-close { align-self:flex-end; background:none; border:none; font-size:1.8rem; cursor:pointer; margin-bottom:2rem; color:#94A3B8; }
+        .mobile-nav-links { list-style:none; display:flex; flex-direction:column; gap:1.5rem; }
+        .mobile-nav-links a { color:#CBD5E1; font-size:1.2rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05); display:block; padding:0.3rem 0; }
+        .mobile-nav-links a.active { color:#fbbf24; }
+        .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1040; opacity:0; visibility:hidden; transition:0.3s; }
+        .overlay.active { opacity:1; visibility:visible; }
+        @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:block;} }
+
+        .btn-primary { background:linear-gradient(135deg,#fbbf24,#f59e0b); border:none; padding:12px 28px; border-radius:50px; font-weight:700; color:#0F172A; cursor:pointer; transition:0.3s; display:inline-block; box-shadow:0 6px 18px rgba(251,191,36,0.35); }
+        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(251,191,36,0.45); }
+        .btn-outline { background:transparent; border:2px solid #fbbf24; padding:10px 24px; border-radius:50px; font-weight:600; color:#fbbf24; transition:0.3s; }
+        .btn-outline:hover { background:#fbbf24; color:#0F172A; }
+
+        section { padding:50px 5%; max-width:1200px; margin:0 auto; }
+        .section-title { font-size:2.2rem; font-weight:800; margin-bottom:0.5rem; color:#0F172A; }
+        .section-title span { color:#fbbf24; }
+        .section-sub { color:#475569; max-width:650px; margin-bottom:1.5rem; font-size:1rem; }
+
+        /* Form Card */
+        .form-card { background:#fff; border-radius:24px; padding:2rem 2.5rem; border:1px solid #e2e8f0; max-width:650px; margin:0 auto 2.5rem; }
+        .form-card h3 { font-size:1.4rem; margin-bottom:1rem; }
+        .form-group { margin-bottom:1.2rem; }
+        .form-group label { display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.3rem; color:#0F172A; }
+        .form-group input, .form-group select, .form-group textarea { width:100%; padding:10px 14px; border:1px solid #e2e8f0; border-radius:30px; font-family:'Inter',sans-serif; background:#F8FAFC; transition:0.2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:#fbbf24; box-shadow:0 0 0 3px rgba(251,191,36,0.2); }
+        .form-group textarea { resize:vertical; min-height:100px; border-radius:20px; }
+        .rating-stars { display:flex; gap:0.3rem; font-size:1.8rem; color:#CBD5E1; cursor:pointer; }
+        .rating-stars .star.active { color:#fbbf24; }
+        .rating-stars .star:hover { color:#fbbf24; }
+
+        /* Testimonials Grid – INSTANT, NO ANIMATION */
+        .testimonials-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.8rem; margin-top:1rem; }
+        .testimonial-card { background:#fff; border-radius:24px; padding:1.8rem; border:1px solid #e2e8f0; transition:0.4s; position:relative; box-shadow:0 4px 12px rgba(0,0,0,0.02); }
+        .testimonial-card:hover { transform:translateY(-4px); border-color:#fbbf24; box-shadow:0 12px 28px rgba(0,0,0,0.06); }
+        .testimonial-card .quote-icon { font-size:2rem; color:#fbbf24; opacity:0.3; position:absolute; top:1.2rem; right:1.5rem; }
+        .testimonial-card .stars { color:#fbbf24; font-size:1rem; margin-bottom:0.5rem; }
+        .testimonial-card .message { font-size:1rem; line-height:1.6; color:#1E293B; margin:0.5rem 0 1rem; }
+        .testimonial-card .author { display:flex; align-items:center; gap:0.8rem; }
+        .testimonial-card .avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,#fbbf24,#f59e0b); display:flex; align-items:center; justify-content:center; font-weight:700; color:#0F172A; font-size:1.1rem; flex-shrink:0; }
+        .testimonial-card .author-info { flex:1; }
+        .testimonial-card .author-info strong { display:block; font-size:1rem; }
+        .testimonial-card .author-info span { font-size:0.85rem; color:#64748B; }
+        .testimonial-card .share-icons { margin-top:1rem; display:flex; gap:0.8rem; border-top:1px solid #e2e8f0; padding-top:1rem; }
+        .testimonial-card .share-icons a { color:#94A3B8; transition:0.3s; font-size:1.1rem; }
+        .testimonial-card .share-icons a:hover { color:#fbbf24; transform:scale(1.1); }
+        .new-badge { display:inline-block; background:#22C55E; color:#fff; font-size:0.55rem; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; padding:2px 10px; border-radius:30px; margin-left:8px; vertical-align:middle; }
+
+        .toast { position:fixed; bottom:2rem; left:50%; transform:translateX(-50%); background:#0F172A; color:#fff; padding:0.8rem 2rem; border-radius:50px; font-weight:600; box-shadow:0 8px 24px rgba(0,0,0,0.2); opacity:0; transition:0.4s; z-index:2000; }
+        .toast.show { opacity:1; bottom:3rem; }
+
+        footer { text-align:center; padding:1.5rem; background:#0a1423; color:#64748B; border-top:1px solid #1e293b; font-size:0.9rem; margin-top:2rem; }
+        @media(max-width:600px){ .form-card{padding:1.5rem;} section{padding:30px 4%;} .testimonials-grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">GenNext<span>Tech</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html" class="active">Testimonials</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+<div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="closeDrawerBtn"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="testimonials.html" class="active">Testimonials</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+    </ul>
+</div>
+<div class="overlay" id="drawerOverlay"></div>
+
+<main>
+    <section>
+        <h1 class="section-title">What Our Customers Say <span>💬</span></h1>
+        <p class="section-sub">Share your experience with GenNext Technologies and help others discover the power of solar energy.</p>
+
+        <!-- Submit Form -->
+        <div class="form-card">
+            <h3>Drop Your Remark</h3>
+            <form id="testimonialForm">
+                <div class="form-group">
+                    <label>Your Name *</label>
+                    <input type="text" id="fullName" placeholder="e.g. Chidi Okonkwo" required>
+                </div>
+                <div class="form-group">
+                    <label>Location *</label>
+                    <input type="text" id="location" placeholder="e.g. Lagos, Nigeria" required>
+                </div>
+                <div class="form-group">
+                    <label>Rating *</label>
+                    <div class="rating-stars" id="ratingStars">
+                        <span class="star active" data-value="1">★</span>
+                        <span class="star active" data-value="2">★</span>
+                        <span class="star active" data-value="3">★</span>
+                        <span class="star active" data-value="4">★</span>
+                        <span class="star active" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="rating" value="5">
+                </div>
+                <div class="form-group">
+                    <label>Your Message *</label>
+                    <textarea id="message" placeholder="Tell us about your experience with our solar installation..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%;">Submit Testimonial</button>
+            </form>
+        </div>
+
+        <!-- Testimonials Display – INSTANT, NO GSAP ANIMATION -->
+        <h2 class="section-title" style="font-size:1.8rem; margin-top:1rem;">Recent <span>Reviews</span></h2>
+        <div class="testimonials-grid" id="testimonialsGrid">
+            <!-- Rendered instantly by script below -->
+        </div>
+    </section>
+</main>
+
+<footer>© 2025 GenNext Technologies — Solar Installation & Renewable Energy Nigeria | <i class="fas fa-phone"></i> +234 800 123 4567 | info@gennext.ng</footer>
+
+<!-- Toast notification -->
+<div class="toast" id="toast"></div>
+
+<script>
+    // ========== STAR RATING ==========
+    const stars = document.querySelectorAll('.star');
+    const ratingInput = document.getElementById('rating');
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            const val = parseInt(this.dataset.value);
+            ratingInput.value = val;
+            stars.forEach(s => {
+                s.classList.toggle('active', parseInt(s.dataset.value) <= val);
+            });
+        });
+        star.addEventListener('mouseenter', function() {
+            const val = parseInt(this.dataset.value);
+            stars.forEach(s => {
+                s.style.color = parseInt(s.dataset.value) <= val ? '#fbbf24' : '#CBD5E1';
+            });
+        });
+        star.addEventListener('mouseleave', function() {
+            const current = parseInt(ratingInput.value);
+            stars.forEach(s => {
+                s.style.color = parseInt(s.dataset.value) <= current ? '#fbbf24' : '#CBD5E1';
+            });
+        });
+    });
+
+    // ========== LOCAL STORAGE + RENDER (INSTANT) ==========
+    const defaultTestimonials = [
+        { id: 1, name: "Adeola Ogunlade", location: "Lekki, Lagos", rating: 5, message: "GenNext installed a 5kW system for my home. My electricity bill dropped by 70%! Professional team and excellent follow-up.", timestamp: "2025-07-10T10:30:00" },
+        { id: 2, name: "Dr. Kemi Adeyemi", location: "Ikeja, Lagos", rating: 5, message: "The hybrid inverter and battery setup at my clinic has been a lifesaver. No more power outages during surgeries. Highly recommend!", timestamp: "2025-07-08T14:20:00" },
+        { id: 3, name: "Chuka Eze", location: "Abuja", rating: 4, message: "Great service, though installation took a bit longer than expected. However, the system works perfectly and customer support is top-notch.", timestamp: "2025-07-05T09:15:00" },
+        { id: 4, name: "Ngozi Obi", location: "Port Harcourt", rating: 5, message: "Our office now runs entirely on solar. We've cut diesel costs by 80%. GenNext made the transition seamless.", timestamp: "2025-07-01T16:45:00" }
+    ];
+
+    let testimonials = [];
+    try {
+        const stored = localStorage.getItem('gennext_testimonials');
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed) && parsed.length) {
+                testimonials = parsed;
+            }
+        }
+    } catch (e) {}
+    if (!testimonials.length) {
+        testimonials = defaultTestimonials;
+        localStorage.setItem('gennext_testimonials', JSON.stringify(testimonials));
+    }
+
+    // Sort newest first
+    testimonials.sort((a, b) => {
+        const dateA = new Date(a.timestamp || a.id);
+        const dateB = new Date(b.timestamp || b.id);
+        return dateB - dateA;
+    });
+
+    function renderTestimonials() {
+        const grid = document.getElementById('testimonialsGrid');
+        if (!grid) return;
+        grid.innerHTML = testimonials.map((t, index) => {
+            const starsHtml = '★'.repeat(t.rating) + '☆'.repeat(5 - t.rating);
+            const initials = t.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+            const newBadge = index === 0 ? `<span class="new-badge">NEW</span>` : '';
+            return `
+                <div class="testimonial-card" data-id="${t.id}">
+                    <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                    <div class="stars">${starsHtml}</div>
+                    <div class="message">“${t.message}”</div>
+                    <div class="author">
+                        <div class="avatar">${initials}</div>
+                        <div class="author-info">
+                            <strong>${t.name} ${newBadge}</strong>
+                            <span>${t.location}</span>
+                        </div>
+                    </div>
+                    <div class="share-icons">
+                        <a href="#" class="share-whatsapp" data-text="“${t.message}” - ${t.name}, ${t.location}" title="Share on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="share-twitter" data-text="“${t.message}” - ${t.name}, ${t.location} #SolarEnergy #GenNext" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-facebook" data-text="“${t.message}” - ${t.name}, ${t.location}" title="Share on Facebook"><i class="fab fa-facebook"></i></a>
+                        <span style="margin-left:auto; font-size:0.8rem; color:#94A3B8;"><i class="far fa-clock"></i> ${new Date(t.timestamp || t.id).toLocaleDateString()}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Attach share events
+        grid.querySelectorAll('.share-whatsapp').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.dataset.text;
+                window.open(`https://wa.me/?text=${encodeURIComponent(text + ' - ' + window.location.href)}`, '_blank');
+            });
+        });
+        grid.querySelectorAll('.share-twitter').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.dataset.text;
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+            });
+        });
+        grid.querySelectorAll('.share-facebook').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.preventDefault();
+                const text = this.dataset.text;
+                window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`, '_blank');
+            });
+        });
+    }
+
+    renderTestimonials();
+
+    // ========== FORM SUBMISSION + GOOGLE SHEETS ==========
+    const form = document.getElementById('testimonialForm');
+    const toast = document.getElementById('toast');
+
+    function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 4000);
+    }
+
+    // 🔥 REPLACE WITH YOUR DEPLOYED WEB APP URL
+    const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxINYF9QdMmDYHlRnE1CVW6-hk0iVCbLRbDRbsImIyd8ft3GVCjlSO8XNUWMEMce5-y/exec';
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('fullName').value.trim();
+        const location = document.getElementById('location').value.trim();
+        const rating = parseInt(document.getElementById('rating').value);
+        const message = document.getElementById('message').value.trim();
+
+        if(!name || !location || !message) {
+            showToast('Please fill in all required fields.');
+            return;
+        }
+
+        const newTestimonial = {
+            id: Date.now(),
+            name,
+            location,
+            rating,
+            message,
+            timestamp: new Date().toISOString()
+        };
+
+        // Save locally (add to top, then re-render)
+        testimonials.unshift(newTestimonial);
+        localStorage.setItem('gennext_testimonials', JSON.stringify(testimonials));
+        renderTestimonials();
+
+        // Reset form
+        form.reset();
+        stars.forEach(s => s.classList.add('active'));
+        document.getElementById('rating').value = 5;
+
+        showToast('Thank you! Your testimonial has been added. 🎉');
+
+        // Send to Google Sheets (if URL is set)
+        if (GOOGLE_SHEETS_URL && GOOGLE_SHEETS_URL.includes('script.google.com')) {
+            fetch(GOOGLE_SHEETS_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newTestimonial)
+            }).catch(err => console.log('Google Sheets error:', err));
+        } else {
+            console.log('Google Sheets URL not configured. Data saved locally.');
+        }
+    });
+
+    // ========== MOBILE DRAWER ==========
+    const h = document.getElementById('hamburgerBtn');
+    const d = document.getElementById('mobileDrawer');
+    const c = document.getElementById('closeDrawerBtn');
+    const o = document.getElementById('drawerOverlay');
+
+    function openDrawer() { d.classList.add('open'); o.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeDrawer() { d.classList.remove('open'); o.classList.remove('active'); document.body.style.overflow = ''; }
+
+    h?.addEventListener('click', openDrawer);
+    c?.addEventListener('click', closeDrawer);
+    o.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => link.addEventListener('click', closeDrawer));
+
+    // No GSAP on testimonials – they're already visible.
+</script>
+
+</body>
+</html>

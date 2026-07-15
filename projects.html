@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Installation Projects | GenNext Technologies Portfolio Nigeria</title>
+    <meta name="description" content="Explore GenNext Technologies' completed solar installation projects across Nigeria. See how we've powered homes, businesses, and communities with renewable energy.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:#F0F4F8; color:#0F172A; overflow-x:hidden; }
+        a { text-decoration:none; color:inherit; }
+
+        /* HEADER */
+        header { background:rgba(10,20,35,0.97); backdrop-filter:blur(14px); position:sticky; top:0; z-index:1000; border-bottom:2px solid #fbbf24; padding:0.6rem 5%; }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        .logo { font-size:1.5rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; }
+        .logo span { color:#22C55E; }
+        .nav-links { display:flex; gap:1.8rem; list-style:none; align-items:center; flex-wrap:wrap; }
+        .nav-links a { color:#CBD5E1; font-weight:600; font-size:0.95rem; transition:0.3s; position:relative; }
+        .nav-links a:hover, .nav-links a.active { color:#fbbf24; }
+        .nav-links a.active::after { content:''; position:absolute; bottom:-6px; left:0; width:100%; height:2.5px; background:#fbbf24; border-radius:4px; }
+        .hamburger { display:none; background:none; border:none; font-size:2rem; color:#fbbf24; cursor:pointer; z-index:1020; }
+        .mobile-drawer { position:fixed; top:0; left:-280px; width:280px; height:100vh; background:#0a1423; z-index:1050; transition:left 0.35s cubic-bezier(0.2,0.9,0.4,1.1); box-shadow:5px 0 30px rgba(0,0,0,0.6); padding:2rem 1.5rem; display:flex; flex-direction:column; }
+        .mobile-drawer.open { left:0; }
+        .drawer-close { align-self:flex-end; background:none; border:none; font-size:1.8rem; cursor:pointer; margin-bottom:2rem; color:#94A3B8; }
+        .mobile-nav-links { list-style:none; display:flex; flex-direction:column; gap:1.5rem; }
+        .mobile-nav-links a { color:#CBD5E1; font-size:1.2rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05); display:block; padding:0.3rem 0; }
+        .mobile-nav-links a.active { color:#fbbf24; }
+        .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1040; opacity:0; visibility:hidden; transition:0.3s; }
+        .overlay.active { opacity:1; visibility:visible; }
+        @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:block;} }
+
+        .btn-primary { background:linear-gradient(135deg,#fbbf24,#f59e0b); border:none; padding:12px 28px; border-radius:50px; font-weight:700; color:#0F172A; cursor:pointer; transition:0.3s; display:inline-block; box-shadow:0 6px 18px rgba(251,191,36,0.35); }
+        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 26px rgba(251,191,36,0.45); }
+
+        section { padding:60px 5%; max-width:1400px; margin:0 auto; }
+        .section-title { font-size:2.2rem; font-weight:800; margin-bottom:0.8rem; color:#0F172A; }
+        .section-title span { color:#fbbf24; }
+        .section-sub { color:#475569; max-width:650px; margin-bottom:2rem; font-size:1rem; }
+
+        .project-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
+        .project-card { background:#fff; border-radius:18px; overflow:hidden; border:1px solid #e2e8f0; transition:0.4s; box-shadow:0 2px 8px rgba(0,0,0,0.02); }
+        .project-card:hover { transform:translateY(-6px); border-color:#fbbf24; box-shadow:0 14px 28px rgba(0,0,0,0.06); }
+        .project-card img { width:100%; height:210px; object-fit:cover; display:block; }
+        .project-content { padding:1.2rem 1.5rem 1.5rem; }
+        .project-content h3 { font-size:1.15rem; font-weight:700; margin-bottom:0.3rem; }
+        .project-content p { color:#475569; font-size:0.95rem; margin-bottom:0.6rem; }
+        .project-tag { display:inline-block; background:#fef9e7; padding:3px 14px; border-radius:40px; font-size:0.7rem; font-weight:700; color:#b45309; text-transform:uppercase; letter-spacing:0.3px; border:1px solid #fde68a; }
+
+        footer { text-align:center; padding:1.5rem; background:#0a1423; color:#64748B; border-top:1px solid #1e293b; font-size:0.9rem; margin-top:2rem; }
+        @media(max-width:600px){ section{padding:40px 4%;} .project-grid{grid-template-columns:1fr;} .section-title{font-size:1.8rem;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">GenNext<span>Tech</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="closeDrawerBtn"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+    </ul>
+</div>
+<div class="overlay" id="drawerOverlay"></div>
+
+<main>
+    <section>
+        <h1 class="section-title">Our <span>Projects</span></h1>
+        <p class="section-sub">Explore some of the solar installations we've completed for homes, businesses, and communities across Nigeria.</p>
+        <div class="project-grid">
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&auto=format" alt="Residential solar panels"><div class="project-content"><h3>Ikoyi Luxury Villa</h3><p>10kW hybrid solar system with battery backup.</p><span class="project-tag">Residential</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1539364021742-6f0753ab3d00?w=600&auto=format" alt="Commercial solar"><div class="project-content"><h3>Victoria Island HQ</h3><p>50kW grid-tied solar array for corporate HQ.</p><span class="project-tag">Commercial</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&auto=format" alt="Industrial solar farm"><div class="project-content"><h3>Lekki Industrial Park</h3><p>200kW ground-mounted solar farm.</p><span class="project-tag">Industrial</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1560010872-69f4936174d6?w=600&auto=format" alt="School solar"><div class="project-content"><h3>Lagos State School Project</h3><p>15kW off-grid system for classrooms.</p><span class="project-tag">Community</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1559309470-1fa99f23e38a?w=600&auto=format" alt="Healthcare solar"><div class="project-content"><h3>Ikeja Medical Centre</h3><p>8kW inverter + battery for critical equipment.</p><span class="project-tag">Healthcare</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?w=600&auto=format" alt="Agricultural solar"><div class="project-content"><h3>Ogun State Farm</h3><p>30kW solar water pumping system.</p><span class="project-tag">Agriculture</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&auto=format" alt="Construction solar"><div class="project-content"><h3>Eko Atlantic Development</h3><p>120kW solar for luxury apartments.</p><span class="project-tag">Residential</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1581092335871-4a3b0e2f7b6d?w=600&auto=format" alt="Office solar"><div class="project-content"><h3>Lekki Phase 1 Office</h3><p>25kW hybrid system with 40kWh storage.</p><span class="project-tag">Commercial</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&auto=format" alt="Community solar"><div class="project-content"><h3>Ikorodu Community Center</h3><p>20kW off-grid solar for community hall.</p><span class="project-tag">Community</span></div></div>
+            <div class="project-card"><img src="https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=600&auto=format" alt="Hotel solar"><div class="project-content"><h3>Lagos Island Hotel</h3><p>150kW solar + battery backup system.</p><span class="project-tag">Commercial</span></div></div>
+        </div>
+    </section>
+</main>
+
+<footer>© 2025 GenNext Technologies — Solar Installation & Renewable Energy Nigeria | <i class="fas fa-phone"></i> +234 800 123 4567 | info@gennext.ng</footer>
+
+<script>
+    // Mobile drawer logic
+    const h = document.getElementById('hamburgerBtn');
+    const d = document.getElementById('mobileDrawer');
+    const c = document.getElementById('closeDrawerBtn');
+    const o = document.getElementById('drawerOverlay');
+
+    function openDrawer() { d.classList.add('open'); o.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeDrawer() { d.classList.remove('open'); o.classList.remove('active'); document.body.style.overflow = ''; }
+
+    h?.addEventListener('click', openDrawer);
+    c?.addEventListener('click', closeDrawer);
+    o.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => link.addEventListener('click', closeDrawer));
+</script>
+
+</body>
+</html>

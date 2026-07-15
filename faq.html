@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Installation FAQ | GenNext Technologies – 100 Answers</title>
+    <meta name="description" content="Find answers to 100 frequently asked questions about solar panels, inverters, batteries, installation, maintenance, and renewable energy – all free from pricing discussions.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:#F0F4F8; color:#0F172A; overflow-x:hidden; }
+        a { text-decoration:none; color:inherit; }
+
+        /* HEADER */
+        header { background:rgba(10,20,35,0.97); backdrop-filter:blur(14px); position:sticky; top:0; z-index:1000; border-bottom:2px solid #fbbf24; padding:0.6rem 5%; }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        .logo { font-size:1.5rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; }
+        .logo span { color:#22C55E; }
+        .nav-links { display:flex; gap:1.8rem; list-style:none; align-items:center; flex-wrap:wrap; }
+        .nav-links a { color:#CBD5E1; font-weight:600; font-size:0.95rem; transition:0.3s; position:relative; }
+        .nav-links a:hover, .nav-links a.active { color:#fbbf24; }
+        .nav-links a.active::after { content:''; position:absolute; bottom:-6px; left:0; width:100%; height:2.5px; background:#fbbf24; border-radius:4px; }
+        .hamburger { display:none; background:none; border:none; font-size:2rem; color:#fbbf24; cursor:pointer; z-index:1020; }
+        .mobile-drawer { position:fixed; top:0; left:-280px; width:280px; height:100vh; background:#0a1423; z-index:1050; transition:left 0.35s cubic-bezier(0.2,0.9,0.4,1.1); box-shadow:5px 0 30px rgba(0,0,0,0.6); padding:2rem 1.5rem; display:flex; flex-direction:column; }
+        .mobile-drawer.open { left:0; }
+        .drawer-close { align-self:flex-end; background:none; border:none; font-size:1.8rem; cursor:pointer; margin-bottom:2rem; color:#94A3B8; }
+        .mobile-nav-links { list-style:none; display:flex; flex-direction:column; gap:1.5rem; }
+        .mobile-nav-links a { color:#CBD5E1; font-size:1.2rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05); display:block; padding:0.3rem 0; }
+        .mobile-nav-links a.active { color:#fbbf24; }
+        .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1040; opacity:0; visibility:hidden; transition:0.3s; }
+        .overlay.active { opacity:1; visibility:visible; }
+        @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:block;} }
+
+        section { padding:60px 5%; max-width:1200px; margin:0 auto; }
+        .section-title { font-size:2.2rem; font-weight:800; margin-bottom:0.5rem; color:#0F172A; }
+        .section-title span { color:#fbbf24; }
+        .section-sub { color:#475569; max-width:650px; margin-bottom:1.5rem; font-size:1rem; }
+
+        /* Search */
+        .search-container { margin-bottom:2rem; }
+        .search-input { width:100%; max-width:600px; padding:14px 20px; border-radius:50px; border:2px solid #e2e8f0; font-size:1rem; background:#fff; transition:0.2s; }
+        .search-input:focus { outline:none; border-color:#fbbf24; box-shadow:0 0 0 4px rgba(251,191,36,0.15); }
+        .search-input::placeholder { color:#94A3B8; }
+        .faq-count { font-size:0.9rem; color:#64748B; margin-top:0.5rem; }
+
+        /* FAQ List */
+        .faq-list { display:flex; flex-direction:column; gap:0.8rem; }
+        .faq-item { background:#fff; border-radius:14px; border:1px solid #e2e8f0; overflow:hidden; transition:0.3s; }
+        .faq-item:hover { border-color:#fbbf24; }
+        .faq-question { padding:1rem 1.5rem; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:1rem; color:#0F172A; }
+        .faq-question i { color:#fbbf24; transition:0.3s; font-size:0.9rem; }
+        .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s ease; padding:0 1.5rem; color:#475569; font-size:0.95rem; line-height:1.6; }
+        .faq-item.active .faq-answer { max-height:300px; padding:0 1.5rem 1.2rem; }
+        .faq-item.active .faq-question i { transform:rotate(180deg); }
+        .faq-item.hidden { display:none; }
+
+        footer { text-align:center; padding:1.5rem; background:#0a1423; color:#64748B; border-top:1px solid #1e293b; font-size:0.9rem; margin-top:2rem; }
+        @media(max-width:600px){ section{padding:40px 4%;} .section-title{font-size:1.8rem;} .search-input{max-width:100%;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">GenNext<span>Tech</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html" class="active">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="calculator.html">Calculator</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="closeDrawerBtn"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="calculator.html">Calculator</a></li>
+    </ul>
+</div>
+<div class="overlay" id="drawerOverlay"></div>
+
+<main>
+    <section>
+        <h1 class="section-title">Frequently Asked <span>Questions</span></h1>
+        <p class="section-sub">Real answers to 100 common questions about solar panels, batteries, inverters, installation, and maintenance – no pricing discussions.</p>
+
+        <!-- Search -->
+        <div class="search-container">
+            <input type="text" id="faqSearch" class="search-input" placeholder="🔍 Search for your question... (e.g., 'battery', 'inverter', 'installation')">
+            <div class="faq-count" id="faqCount">Showing 100 of 100 questions</div>
+        </div>
+
+        <!-- FAQ List -->
+        <div class="faq-list" id="faqList"></div>
+    </section>
+</main>
+
+<footer>© 2025 GenNext Technologies — Solar Installation & Renewable Energy Nigeria | <i class="fas fa-phone"></i> +234 800 123 4567 | info@gennext.ng</footer>
+
+<script>
+    // ========== 100 REAL-WORLD FAQ (NO MONEY) ==========
+    const faqs = [
+        // Panels
+        { q: "Which type of solar panel is best for homes?", a: "Monocrystalline panels are generally best for homes due to their high efficiency (18–22%) and sleek appearance, especially when roof space is limited." },
+        { q: "What is the difference between monocrystalline and polycrystalline panels?", a: "Monocrystalline panels are made from a single silicon crystal, offering higher efficiency and a uniform dark look. Polycrystalline panels use multiple crystals, are slightly less efficient, and have a blueish hue." },
+        { q: "Do solar panels work in the shade?", a: "Shading significantly reduces output, but bypass diodes help mitigate losses. Even partial shading can drop performance, so it's best to avoid shade." },
+        { q: "Can solar panels be installed on a flat roof?", a: "Yes, flat roofs can accommodate panels using ballasted or tilted mounting systems that angle the panels for optimal sun exposure." },
+        { q: "What is the typical lifespan of a solar panel?", a: "Most panels come with a 25–30 year power warranty and can continue producing electricity for 30–40 years with gradual degradation." },
+        { q: "What is solar panel degradation rate?", a: "High‑quality panels degrade at about 0.5% per year, meaning after 25 years they still produce ~88% of their original capacity." },
+        { q: "How do I know if my roof is suitable for solar?", a: "A site assessment evaluates roof condition, orientation, tilt, shading, and structural integrity to determine suitability." },
+        { q: "What is the best orientation for solar panels?", a: "In the northern hemisphere, true south is best. East/west orientations also work but produce slightly less energy." },
+        { q: "What is the ideal tilt angle for solar panels?", a: "Tilt angle equal to your latitude gives maximum annual output. Adjustable racks can optimize seasonal production." },
+        { q: "Can solar panels be moved later?", a: "Yes, but it requires professional disassembly and reinstallation, which may involve costs and permits." },
+
+        // Inverters
+        { q: "What are the different types of solar inverters?", a: "String inverters, microinverters, power optimizers, and hybrid inverters. Each has pros and cons for different system sizes and shading conditions." },
+        { q: "Which inverter is best – string or micro?", a: "String inverters are cost‑effective for unshaded roofs; microinverters perform better when shading is an issue and allow panel‑level monitoring." },
+        { q: "What is a hybrid inverter and why do I need one?", a: "A hybrid inverter manages both solar panels and batteries, enabling energy storage, backup power, and time‑of‑use shifting." },
+        { q: "How long does an inverter last?", a: "Most inverters have a 10‑15 year lifespan. Some newer models offer 20‑year warranties." },
+        { q: "Can an inverter work without a battery?", a: "Yes, grid‑tied inverters operate without batteries; they export excess energy to the grid." },
+        { q: "What is the difference between a grid‑tied and off‑grid inverter?", a: "Grid‑tied inverters synchronize with the utility grid and cannot operate during a blackout. Off‑grid inverters work independently with batteries." },
+        { q: "What is a power optimizer and do I need one?", a: "Power optimizers attach to each panel to maximize output and provide module‑level monitoring. They're useful when shading or multiple roof orientations exist." },
+        { q: "Are inverters noisy?", a: "Modern inverters are very quiet – you may hear a low hum, but it's usually not bothersome." },
+        { q: "What is a solar charge controller?", a: "A device that regulates voltage and current from solar panels to batteries, preventing overcharging and extending battery life." },
+        { q: "Can I upgrade my inverter later?", a: "Yes, but compatibility with your panels and batteries must be checked. It's best to plan ahead if you might add storage." },
+
+        // Batteries
+        { q: "Which battery is best for solar storage?", a: "Lithium‑ion batteries are currently the best choice for most homes due to their high efficiency, long cycle life, and deep discharge capability." },
+        { q: "What is the difference between lithium‑ion and lead‑acid batteries?", a: "Lithium‑ion batteries are lighter, more efficient, last longer (10‑15 years), and can be discharged deeper. Lead‑acid are cheaper but have shorter life and require maintenance." },
+        { q: "What is a good battery capacity for a home?", a: "A typical home may need 5–15 kWh of usable storage, depending on daily consumption and backup requirements." },
+        { q: "What is depth of discharge (DoD)?", a: "DoD indicates the percentage of battery capacity that can be used before recharging. Higher DoD (e.g., 90%) means more usable energy." },
+        { q: "What is battery cycle life?", a: "The number of charge/discharge cycles a battery can perform before its capacity drops below 80%. Lithium‑ion typically has 5,000–10,000 cycles." },
+        { q: "Can I add batteries to an existing solar system?", a: "Yes, most modern systems are battery‑ready. You may need to add a hybrid inverter or a battery inverter." },
+        { q: "Do solar batteries require maintenance?", a: "Lithium‑ion batteries are virtually maintenance‑free. Lead‑acid batteries need periodic water topping and cleaning." },
+        { q: "How long does a battery last during an outage?", a: "It depends on your load and battery capacity. A 10 kWh battery can run essential appliances for 6–12 hours." },
+        { q: "What is a battery management system (BMS)?", a: "A BMS monitors cell voltage, temperature, and current to ensure safe operation and prevent overcharge/discharge." },
+        { q: "Are solar batteries recyclable?", a: "Yes, lithium‑ion batteries can be recycled; many manufacturers have recycling programs." },
+
+        // Installation
+        { q: "What is the process of installing solar panels?", a: "Site assessment → design → permitting → installation (mounting, wiring, inverter, battery) → inspection → grid connection (if grid‑tied)." },
+        { q: "How long does installation take?", a: "Residential systems typically take 2–5 days, depending on system size and complexity." },
+        { q: "Do I need a building permit for solar panels?", a: "Most areas require permits for electrical and structural work. Your installer usually handles this." },
+        { q: "Can solar panels be installed on a metal roof?", a: "Yes, using specialised standing seam clamps or penetrating mounts. Metal roofs are great for solar." },
+        { q: "What happens if my roof needs replacing?", a: "Panels can be removed and reinstalled. It's best to coordinate roofing work with solar installation." },
+        { q: "Can I install solar panels myself?", a: "While DIY is possible, professional installation ensures safety, warranty, and compliance with local codes." },
+        { q: "What is a string vs. a microinverter system?", a: "String inverter systems connect panels in series; microinverters are attached to each panel individually." },
+        { q: "What is the weight load of solar panels on a roof?", a: "Typical panels weigh about 20 kg each. A standard roof can handle the load, but a structural assessment is recommended." },
+        { q: "Can solar panels be installed on a carport?", a: "Yes, carports are a popular option for ground‑mounted or elevated solar structures." },
+        { q: "What is a ballasted mounting system?", a: "A non‑penetrating system that uses concrete blocks to hold panels on flat roofs without damaging the roof membrane." },
+
+        // Performance & Maintenance
+        { q: "How often should solar panels be cleaned?", a: "Typically every 6‑12 months; more frequently in dusty or high‑pollen areas." },
+        { q: "What is the best way to clean solar panels?", a: "Use a soft brush or sponge with mild soap and water. Avoid abrasive materials and high‑pressure washers." },
+        { q: "Do solar panels require regular maintenance?", a: "Very little – mainly visual inspections and cleaning. Inverters may need periodic firmware updates." },
+        { q: "What is solar monitoring and why is it important?", a: "Monitoring tracks system performance and alerts you to any issues, ensuring your system operates optimally." },
+        { q: "Can I monitor my system with my phone?", a: "Yes, most modern systems have smartphone apps that show real‑time production and consumption." },
+        { q: "What is a performance ratio (PR)?", a: "PR measures system efficiency – the ratio of actual output to theoretical output under ideal conditions." },
+        { q: "How does temperature affect solar panels?", a: "Panels are less efficient at high temperatures. The temperature coefficient indicates this loss (typically –0.3 to –0.5% per °C)." },
+        { q: "Do solar panels work in winter?", a: "Yes, they produce electricity even in winter, but shorter days and lower sun angle reduce output." },
+        { q: "How does snow affect solar panels?", a: "Snow blocks sunlight, but panels are usually tilted so snow slides off. Producing little heat also helps melt it." },
+        { q: "What is a 'hot spot' on a solar panel?", a: "A hot spot is a localised area of high temperature caused by shading or cell defects, which can damage the panel." },
+
+        // Off-grid & Hybrid
+        { q: "What is an off‑grid solar system?", a: "A stand‑alone system not connected to the utility grid, relying on batteries for storage." },
+        { q: "What is a grid‑tied solar system?", a: "A system connected to the grid that can export excess power and import when needed." },
+        { q: "What is a hybrid solar system?", a: "Combines grid‑tied and battery backup, offering both export capability and outage protection." },
+        { q: "Can I go fully off‑grid with solar?", a: "Yes, with a properly sized system and enough battery storage, you can achieve 100% energy independence." },
+        { q: "What is net metering?", a: "A billing arrangement where you receive credits for excess electricity sent to the grid." },
+        { q: "What happens during a power outage with a grid‑tied system?", a: "Grid‑tied systems shut down automatically during outages to protect workers. Batteries or a hybrid inverter are needed for backup." },
+        { q: "What is a transfer switch?", a: "A device that switches the power source between the grid and your inverter during an outage." },
+        { q: "Can I use solar to charge my electric vehicle (EV)?", a: "Absolutely – you can charge your EV directly from solar, often during peak sun hours." },
+        { q: "What is a solar tracker?", a: "A mechanical system that rotates panels to follow the sun, increasing energy yield by 20‑30%." },
+        { q: "What is a virtual power plant (VPP)?", a: "A network of distributed solar+battery systems that can be aggregated to provide grid services." },
+
+        // Warranties & Certifications
+        { q: "What does a solar panel warranty cover?", a: "Typically a 10‑12 year product warranty (defects) and a 25‑30 year power warranty (performance)." },
+        { q: "What is a performance warranty?", a: "Guarantees that panels will produce at least a specified percentage (e.g., 80%) of rated power after 25 years." },
+        { q: "What is a product warranty?", a: "Covers manufacturing defects and workmanship for a set period (usually 10‑12 years)." },
+        { q: "What is UL certification?", a: "Underwriters Laboratories certification ensures safety standards are met for electrical equipment." },
+        { q: "What are IEC standards?", a: "International Electrotechnical Commission standards that cover performance and safety of solar equipment." },
+        { q: "What is a Tier 1 panel?", a: "Tier 1 is a classification based on financial stability and quality; Tier 2/3 are less established." },
+        { q: "What is a flash test?", a: "A quality control test that measures panel output under standard test conditions (STC)." },
+        { q: "What is LID (Light Induced Degradation)?", a: "An initial efficiency drop that occurs when panels are first exposed to sunlight, typically 1‑3%." },
+        { q: "What is PID (Potential Induced Degradation)?", a: "A form of voltage‑induced degradation that can be mitigated with proper design and grounding." },
+        { q: "Do I need insurance for my solar system?", a: "It's recommended – your home insurance may cover it, or you can add a specific rider." },
+
+        // Environmental & Miscellaneous
+        { q: "Are solar panels environmentally friendly?", a: "Yes, they produce clean energy with zero emissions during operation. Manufacturing has some footprint, but payback is fast." },
+        { q: "What is the carbon footprint of a solar panel?", a: "Energy payback time is typically 1‑3 years; after that, panels generate carbon‑free electricity for decades." },
+        { q: "Can solar panels be recycled?", a: "Yes, up to 95% of materials can be recovered through specialised recycling processes." },
+        { q: "What is a solar water heater?", a: "Uses solar thermal collectors to heat water, different from PV panels that generate electricity." },
+        { q: "What is a solar tree?", a: "A decorative structure with solar panels mounted on 'branches', often used in urban settings." },
+        { q: "What is the difference between kW and kWh?", a: "kW (kilowatt) is power – the rate of energy. kWh (kilowatt‑hour) is energy – the total amount used over time." },
+        { q: "What are peak sun hours?", a: "The number of hours per day when solar irradiance averages 1,000 W/m². Used for system sizing." },
+        { q: "What is a solar pathfinder?", a: "A tool that measures shading and helps determine optimal placement of panels." },
+        { q: "What is a PV system designer?", a: "Software that models system performance based on location, equipment, and design parameters." },
+        { q: "What is the future of solar energy?", a: "Trends include higher efficiency, integrated building materials, floating solar farms, and large‑scale storage solutions." },
+
+        // More about batteries
+        { q: "What is the best battery brand for solar?", a: "There are many reputable brands; choose one with good local support, long warranty, and safety certifications." },
+        { q: "What is the difference between lithium iron phosphate (LFP) and NMC batteries?", a: "LFP offers longer cycle life and better thermal stability; NMC has higher energy density but shorter lifespan." },
+        { q: "How do I size a battery for my home?", a: "Calculate your daily energy consumption and desired backup duration. Also consider your solar production and peak loads." },
+        { q: "Can I use a battery for both solar and grid charging?", a: "Yes, hybrid systems allow battery charging from solar, grid, or both – whichever is cheaper or more reliable." },
+        { q: "What is a battery inverter?", a: "A specialised inverter that manages the charge/discharge of batteries and converts DC to AC for home use." },
+        { q: "What is the most common battery voltage for homes?", a: "Most residential systems use 48V battery banks for efficiency and safety." },
+        { q: "What is a battery's round‑trip efficiency?", a: "The percentage of energy that can be retrieved after a full charge/discharge cycle – typically 85‑95%." },
+        { q: "Do batteries lose capacity in cold weather?", a: "Yes, battery performance can drop in very cold conditions. Some batteries have built‑in heating." },
+        { q: "How often should I check my battery health?", a: "Most BMS systems monitor automatically. You can check via your monitoring app for any alerts." },
+        { q: "Can batteries be connected in parallel or series?", a: "Yes, series increases voltage, parallel increases capacity. Both must be matched correctly." },
+
+        // Final general
+        { q: "What is the difference between a solar panel and a solar module?", a: "The terms are often used interchangeably. 'Module' is the technical name for a single panel." },
+        { q: "What is a combiner box?", a: "A box where multiple strings of panels are combined before going to the inverter." },
+        { q: "What are MC4 connectors?", a: "Standardised weatherproof connectors used to link solar panels in a string." },
+        { q: "What is a disconnector switch?", a: "A manual switch that isolates the solar system for maintenance or emergencies." },
+        { q: "What is a monitoring gateway?", a: "A device that collects data from inverters and sends it to a cloud platform for viewing." },
+        { q: "What is a smart meter?", a: "A digital meter that records both import and export of electricity." },
+        { q: "Can I use solar panels with a generator?", a: "Yes, with proper integration, a generator can be used as backup when solar+battery are insufficient." },
+        { q: "What is a solar charge controller?", a: "A device that manages charging of batteries to prevent over‑charging and extend battery life." },
+        { q: "What is a distribution board?", a: "The main electrical panel that distributes power to your home's circuits." },
+        { q: "What is a ground fault protection device?", a: "A safety device that detects leaks and shuts down the system to prevent electrocution." }
+    ];
+
+    // Ensure exactly 100 (we have 100)
+    const faqList = document.getElementById('faqList');
+    const searchInput = document.getElementById('faqSearch');
+    const faqCount = document.getElementById('faqCount');
+
+    function renderFaqs(filter = '') {
+        const searchTerm = filter.toLowerCase().trim();
+        let visibleCount = 0;
+        let html = '';
+        faqs.forEach((faq, index) => {
+            const question = faq.q.toLowerCase();
+            const answer = faq.a.toLowerCase();
+            const match = question.includes(searchTerm) || answer.includes(searchTerm);
+            if (match) visibleCount++;
+            const hiddenClass = match ? '' : 'hidden';
+            const activeClass = index === 0 ? 'active' : ''; // first open by default
+            html += `
+                <div class="faq-item ${hiddenClass} ${activeClass}" data-index="${index}">
+                    <div class="faq-question">
+                        <span>${faq.q}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">${faq.a}</div>
+                </div>
+            `;
+        });
+        faqList.innerHTML = html;
+        faqCount.textContent = `Showing ${visibleCount} of ${faqs.length} questions`;
+
+        // Re‑attach toggle events
+        document.querySelectorAll('.faq-item:not(.hidden) .faq-question').forEach(el => {
+            el.addEventListener('click', function() {
+                const parent = this.parentElement;
+                const isActive = parent.classList.contains('active');
+                document.querySelectorAll('.faq-item.active').forEach(item => item.classList.remove('active'));
+                if (!isActive) parent.classList.add('active');
+            });
+        });
+    }
+
+    renderFaqs();
+    searchInput.addEventListener('input', function() { renderFaqs(this.value); });
+
+    // Mobile drawer
+    const h = document.getElementById('hamburgerBtn');
+    const d = document.getElementById('mobileDrawer');
+    const c = document.getElementById('closeDrawerBtn');
+    const o = document.getElementById('drawerOverlay');
+
+    function openDrawer() { d.classList.add('open'); o.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeDrawer() { d.classList.remove('open'); o.classList.remove('active'); document.body.style.overflow = ''; }
+
+    h?.addEventListener('click', openDrawer);
+    c?.addEventListener('click', closeDrawer);
+    o.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.mobile-nav-links a').forEach(link => link.addEventListener('click', closeDrawer));
+</script>
+
+</body>
+</html>

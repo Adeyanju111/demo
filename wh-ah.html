@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wh to Ah Calculator | GenNext Technologies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:#F0F4F8; color:#0F172A; }
+        a { text-decoration:none; color:inherit; }
+        header { background:rgba(10,20,35,0.97); backdrop-filter:blur(14px); position:sticky; top:0; z-index:1000; border-bottom:2px solid #fbbf24; padding:0.6rem 5%; }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        .logo { font-size:1.5rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; }
+        .logo span { color:#22C55E; }
+        .nav-links { display:flex; gap:1.8rem; list-style:none; align-items:center; flex-wrap:wrap; }
+        .nav-links a { color:#CBD5E1; font-weight:600; font-size:0.95rem; transition:0.3s; position:relative; }
+        .nav-links a:hover, .nav-links a.active { color:#fbbf24; }
+        .nav-links a.active::after { content:''; position:absolute; bottom:-6px; left:0; width:100%; height:2.5px; background:#fbbf24; border-radius:4px; }
+        .hamburger { display:none; background:none; border:none; font-size:2rem; color:#fbbf24; cursor:pointer; z-index:1020; }
+        .mobile-drawer { position:fixed; top:0; left:-280px; width:280px; height:100vh; background:#0a1423; z-index:1050; transition:left 0.35s cubic-bezier(0.2,0.9,0.4,1.1); box-shadow:5px 0 30px rgba(0,0,0,0.6); padding:2rem 1.5rem; display:flex; flex-direction:column; }
+        .mobile-drawer.open { left:0; }
+        .drawer-close { align-self:flex-end; background:none; border:none; font-size:1.8rem; cursor:pointer; margin-bottom:2rem; color:#94A3B8; }
+        .mobile-nav-links { list-style:none; display:flex; flex-direction:column; gap:1.5rem; }
+        .mobile-nav-links a { color:#CBD5E1; font-size:1.2rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05); display:block; padding:0.3rem 0; }
+        .mobile-nav-links a.active { color:#fbbf24; }
+        .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1040; opacity:0; visibility:hidden; transition:0.3s; }
+        .overlay.active { opacity:1; visibility:visible; }
+        @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:block;} }
+        section { padding:40px 5%; max-width:800px; margin:0 auto; }
+        .section-title { font-size:2rem; font-weight:800; margin-bottom:0.3rem; color:#0F172A; }
+        .section-title span { color:#fbbf24; }
+        .calc-box { background:#fff; border-radius:24px; padding:2rem; border:1px solid #e2e8f0; margin-top:1rem; }
+        .form-group { margin-bottom:1.2rem; }
+        .form-group label { display:block; font-weight:600; font-size:0.9rem; margin-bottom:0.3rem; }
+        .form-group input { width:100%; padding:10px 14px; border:1px solid #e2e8f0; border-radius:30px; font-family:'Inter',sans-serif; background:#F8FAFC; }
+        .form-group input:focus { outline:none; border-color:#fbbf24; box-shadow:0 0 0 3px rgba(251,191,36,0.15); }
+        .btn-calc { background:linear-gradient(135deg,#fbbf24,#f59e0b); border:none; padding:12px 32px; border-radius:50px; font-weight:700; color:#0F172A; cursor:pointer; transition:0.3s; width:100%; font-size:1rem; }
+        .btn-calc:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(251,191,36,0.3); }
+        .result-box { background:#F8FAFC; border-radius:16px; padding:1.5rem; margin-top:1.5rem; border:1px solid #e2e8f0; display:none; }
+        .result-box.show { display:block; }
+        .result-box .value { font-size:1.5rem; font-weight:800; color:#fbbf24; }
+        .back-link { display:inline-block; margin-top:1rem; color:#fbbf24; font-weight:600; }
+        .back-link:hover { text-decoration:underline; }
+        footer { text-align:center; padding:1.5rem; background:#0a1423; color:#64748B; border-top:1px solid #1e293b; font-size:0.9rem; margin-top:1.5rem; }
+        @media(max-width:600px){ section{padding:30px 4%;} .calc-box{padding:1.2rem;} }
+    </style>
+</head>
+<body>
+<header>
+    <div class="nav-container">
+        <div class="logo">GenNext<span>Tech</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="calculator.html" class="active">Calculator</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+<div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="closeDrawerBtn"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="calculator.html" class="active">Calculator</a></li>
+    </ul>
+</div>
+<div class="overlay" id="drawerOverlay"></div>
+
+<main>
+    <section>
+        <h1 class="section-title">Wh to <span>Ah</span></h1>
+        <p style="color:#475569; margin-bottom:1rem;">Convert Watt-hours to Amp-hours.</p>
+        <div class="calc-box">
+            <div class="form-group"><label>Energy (Wh)</label><input type="number" id="wh" placeholder="e.g. 1200" value="1200"></div>
+            <div class="form-group"><label>Voltage (V)</label><input type="number" id="volt" placeholder="e.g. 12" value="12"></div>
+            <button class="btn-calc" onclick="calculate()">Convert</button>
+            <div class="result-box" id="result"><h3>🔋 Capacity</h3><div class="value" id="ahValue">-- Ah</div></div>
+        </div>
+        <a href="calculator.html" class="back-link">← Back to all calculators</a>
+    </section>
+</main>
+<footer>© 2025 GenNext Technologies — Solar Installation & Renewable Energy Nigeria</footer>
+<script>
+    function calculate(){const wh=parseFloat(document.getElementById('wh').value),v=parseFloat(document.getElementById('volt').value);if(!wh||!v){document.getElementById('result').classList.remove('show');return;}const ah=wh/v;document.getElementById('ahValue').textContent=ah.toFixed(2)+' Ah';document.getElementById('result').classList.add('show');}
+    const h=document.getElementById('hamburgerBtn'),d=document.getElementById('mobileDrawer'),c=document.getElementById('closeDrawerBtn'),o=document.getElementById('drawerOverlay');
+    function openDrawer(){d.classList.add('open');o.classList.add('active');document.body.style.overflow='hidden';}
+    function closeDrawer(){d.classList.remove('open');o.classList.remove('active');document.body.style.overflow='';}
+    h?.addEventListener('click',openDrawer);c?.addEventListener('click',closeDrawer);o.addEventListener('click',closeDrawer);
+    document.querySelectorAll('.mobile-nav-links a').forEach(l=>l.addEventListener('click',closeDrawer));
+</script>
+</body>
+</html>

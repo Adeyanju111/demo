@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Calculators | GenNext Technologies</title>
+    <meta name="description" content="Free solar calculators: battery runtime, inverter sizing, charging time, energy usage, and more. Tools for your solar installation planning.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:#F0F4F8; color:#0F172A; }
+        a { text-decoration:none; color:inherit; }
+
+        header { background:rgba(10,20,35,0.97); backdrop-filter:blur(14px); position:sticky; top:0; z-index:1000; border-bottom:2px solid #fbbf24; padding:0.6rem 5%; }
+        .nav-container { max-width:1400px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        .logo { font-size:1.5rem; font-weight:900; color:#fbbf24; letter-spacing:-0.5px; }
+        .logo span { color:#22C55E; }
+        .nav-links { display:flex; gap:1.8rem; list-style:none; align-items:center; flex-wrap:wrap; }
+        .nav-links a { color:#CBD5E1; font-weight:600; font-size:0.95rem; transition:0.3s; position:relative; }
+        .nav-links a:hover, .nav-links a.active { color:#fbbf24; }
+        .nav-links a.active::after { content:''; position:absolute; bottom:-6px; left:0; width:100%; height:2.5px; background:#fbbf24; border-radius:4px; }
+        .hamburger { display:none; background:none; border:none; font-size:2rem; color:#fbbf24; cursor:pointer; z-index:1020; }
+        .mobile-drawer { position:fixed; top:0; left:-280px; width:280px; height:100vh; background:#0a1423; z-index:1050; transition:left 0.35s cubic-bezier(0.2,0.9,0.4,1.1); box-shadow:5px 0 30px rgba(0,0,0,0.6); padding:2rem 1.5rem; display:flex; flex-direction:column; }
+        .mobile-drawer.open { left:0; }
+        .drawer-close { align-self:flex-end; background:none; border:none; font-size:1.8rem; cursor:pointer; margin-bottom:2rem; color:#94A3B8; }
+        .mobile-nav-links { list-style:none; display:flex; flex-direction:column; gap:1.5rem; }
+        .mobile-nav-links a { color:#CBD5E1; font-size:1.2rem; font-weight:600; border-bottom:1px solid rgba(255,255,255,0.05); display:block; padding:0.3rem 0; }
+        .mobile-nav-links a.active { color:#fbbf24; }
+        .overlay { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1040; opacity:0; visibility:hidden; transition:0.3s; }
+        .overlay.active { opacity:1; visibility:visible; }
+        @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:block;} }
+
+        section { padding:40px 5%; max-width:1200px; margin:0 auto; }
+        .section-title { font-size:2.2rem; font-weight:800; margin-bottom:0.5rem; color:#0F172A; }
+        .section-title span { color:#fbbf24; }
+        .section-sub { color:#475569; max-width:650px; margin-bottom:1.5rem; font-size:1rem; }
+
+        .tools-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.2rem; }
+        .tool-card { background:#fff; border-radius:18px; padding:1.5rem; border:1px solid #e2e8f0; transition:0.3s; text-align:center; }
+        .tool-card:hover { transform:translateY(-4px); border-color:#fbbf24; box-shadow:0 12px 24px rgba(0,0,0,0.05); }
+        .tool-card i { font-size:2rem; color:#fbbf24; margin-bottom:0.8rem; }
+        .tool-card h3 { font-size:1rem; font-weight:700; margin-bottom:0.3rem; }
+        .tool-card p { font-size:0.8rem; color:#64748B; }
+        .badge { display:inline-block; background:#fef9e7; padding:2px 10px; border-radius:20px; font-size:0.6rem; font-weight:700; color:#b45309; border:1px solid #fde68a; margin-top:0.5rem; }
+
+        footer { text-align:center; padding:1.5rem; background:#0a1423; color:#64748B; border-top:1px solid #1e293b; font-size:0.9rem; margin-top:1.5rem; }
+
+        @media(max-width:600px){ section{padding:30px 4%;} .section-title{font-size:1.8rem;} .tools-grid{grid-template-columns:1fr 1fr;} .tool-card{padding:1rem;} .tool-card i{font-size:1.5rem;} .tool-card h3{font-size:0.85rem;} }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">GenNext<span>Tech</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="calculator.html" class="active">Calculator</a></li>
+        </ul>
+        <button class="hamburger" id="hamburgerBtn"><i class="fas fa-bars"></i></button>
+    </div>
+</header>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="closeDrawerBtn"><i class="fas fa-times"></i></button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="calculator.html" class="active">Calculator</a></li>
+    </ul>
+</div>
+<div class="overlay" id="drawerOverlay"></div>
+
+<main>
+    <section>
+        <h1 class="section-title">Solar <span>Calculators</span></h1>
+        <p class="section-sub">Free tools to help you size, plan, and optimize your solar power system. Select a calculator below to get started.</p>
+
+        <div class="tools-grid">
+            <a href="runtime.html" class="tool-card"><i class="fas fa-clock"></i><h3>Battery Runtime</h3><p>How long will your battery last?</p></a>
+            <a href="solar-charge.html" class="tool-card"><i class="fas fa-solar-panel"></i><h3>Solar Panel for Charging</h3><p>Panel size for battery charging <span class="badge">Li | Tubular | Dry</span></p></a>
+            <a href="inverter-sizing.html" class="tool-card"><i class="fas fa-bolt"></i><h3>Inverter Sizing</h3><p>Find the right inverter size</p></a>
+            <a href="charge-time.html" class="tool-card"><i class="fas fa-clock"></i><h3>Battery Charging Time</h3><p>How long to charge? <span class="badge">Li | Tubular | Dry</span></p></a>
+            <a href="appliance-power.html" class="tool-card"><i class="fas fa-plug"></i><h3>Appliance Power</h3><p>Calculate appliance wattage</p></a>
+            <a href="daily-energy.html" class="tool-card"><i class="fas fa-chart-line"></i><h3>Daily Energy Usage</h3><p>Track your daily consumption <span class="badge">Li | Tubular | Dry</span></p></a>
+            <a href="battery-capacity.html" class="tool-card"><i class="fas fa-database"></i><h3>Battery Capacity</h3><p>Size your battery bank <span class="badge">Li | Tubular | Dry</span></p></a>
+            <a href="ups-runtime.html" class="tool-card"><i class="fas fa-server"></i><h3>UPS Runtime</h3><p>UPS backup time calculator</p></a>
+            <a href="powerbank-runtime.html" class="tool-card"><i class="fas fa-mobile-alt"></i><h3>Power Bank Runtime</h3><p>How long to charge devices?</p></a>
+            <a href="watt-amp.html" class="tool-card"><i class="fas fa-exchange-alt"></i><h3>Watt to Amp</h3><p>Convert watts to amps</p></a>
+            <a href="amp-watt.html" class="tool-card"><i class="fas fa-exchange-alt"></i><h3>Amp to Watt</h3><p>Convert amps to watts</p></a>
+            <a href="ah-wh.html" class="tool-card"><i class="fas fa-exchange-alt"></i><h3>Ah to Wh</h3><p>Amp-hours to Watt-hours</p></a>
+            <a href="wh-ah.html" class="tool-card"><i class="fas fa-exchange-alt"></i><h3>Wh to Ah</h3><p>Watt-hours to Amp-hours</p></a>
+            <a href="kw-ah-wh.html" class="tool-card"><i class="fas fa-exchange-alt"></i><h3>kW to Ah / Wh</h3><p>Kilowatt to Amp/Watt-hours</p></a>
+            <a href="backup-time.html" class="tool-card"><i class="fas fa-clock"></i><h3>Battery Backup Time</h3><p>Backup time calculator <span class="badge">Li | Tubular | Dry</span></p></a>
+        </div>
+    </section>
+</main>
+
+<footer>© 2025 GenNext Technologies — Solar Installation & Renewable Energy Nigeria | <i class="fas fa-phone"></i> +234 800 123 4567 | info@gennext.ng</footer>
+
+<script>
+    // Mobile drawer
+    const h=document.getElementById('hamburgerBtn'),d=document.getElementById('mobileDrawer'),c=document.getElementById('closeDrawerBtn'),o=document.getElementById('drawerOverlay');
+    function openDrawer(){d.classList.add('open');o.classList.add('active');document.body.style.overflow='hidden';}
+    function closeDrawer(){d.classList.remove('open');o.classList.remove('active');document.body.style.overflow='';}
+    h?.addEventListener('click',openDrawer);c?.addEventListener('click',closeDrawer);o.addEventListener('click',closeDrawer);
+    document.querySelectorAll('.mobile-nav-links a').forEach(l=>l.addEventListener('click',closeDrawer));
+</script>
+</body>
+</html>
