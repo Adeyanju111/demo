@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
+    /* same styles – keep them */
     * { margin:0; padding:0; box-sizing:border-box; }
     body { font-family:'Inter',sans-serif; background:#ffffff; color:#1A1A1A; overflow-x:hidden; }
     a { text-decoration:none; color:inherit; }
@@ -231,11 +232,9 @@
 <main>
   <div class="hero-card">
     <h1>Photo <span>Gallery</span></h1>
-    <p>Browse our collection – click any image to enlarge.</p>
+    <p>Images from our projects – hosted on GitHub.</p>
   </div>
-  <div class="gallery-grid" id="galleryGrid">
-    <!-- Images will be rendered here -->
-  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
 </main>
 
 <footer>© 2025 GenNext Technologies — Solar Installation & Renewable Energy Nigeria</footer>
@@ -251,23 +250,34 @@
 <!-- ===== SCRIPTS ===== -->
 <script>
   // ================================================================
-  //  SAMPLE IMAGE URLs (free Unsplash photos)
-  //  Replace these with your own image URLs
+  //  CONFIGURATION – CHANGE THESE TO MATCH YOUR SETUP
   // ================================================================
-  const imageUrls = [
-    '1(1).png',
-    '1(2).jpg',
-    '1(3).jpg',
-    '1(4).jp',
-    '1(5).jp',
-    '1(6).jp',
-    '1(7).jp',
-    '1(8).jp',
-    'https://images.unsplash.com/photo-1581092335871-4a3b0e2f7b6d?w=600&auto=format',
-    'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&auto=format',
-    'https://images.unsplash.com/photo-1503387837-b154d5074bd2?w=600&auto=format',
-    'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&auto=format'
+
+  // Option 1: If you use GitHub Pages and the HTML is in the same repo,
+  // use a relative path like 'images/'
+  // const basePath = 'images/';
+
+  // Option 2: If you want to use the raw GitHub URL (works anywhere):
+  // Replace 'your-username', 'your-repo', and 'main' with your details
+  const basePath = 'https://raw.githubusercontent.com/your-username/your-repo/main/images/';
+
+  // List your image filenames (only the file names, not the full path)
+  const imageFiles = [
+    'inverter-1.jpg',
+    'inverter-2.jpg',
+    'panel-1.jpg',
+    'battery-1.jpg',
+    'controller-1.jpg',
+    'project-1.jpg',
+    'project-2.jpg',
+    'project-3.jpg'
+    // Add more filenames as needed
   ];
+
+  // ================================================================
+  //  Build full image URLs
+  // ================================================================
+  const imageUrls = imageFiles.map(file => basePath + file);
 
   // ================================================================
   //  RENDER GALLERY
@@ -278,7 +288,7 @@
     if (!imageUrls.length) {
       gallery.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:40px; color:#999;">
         <i class="fas fa-images" style="font-size:3rem; display:block; margin-bottom:16px;"></i>
-        <p>No images to display.</p>
+        <p>No images found. Add some filenames to the list.</p>
       </div>`;
       return;
     }
@@ -352,5 +362,6 @@
   o.addEventListener('click', closeDrawer);
   document.querySelectorAll('.mobile-nav-links a').forEach(link => link.addEventListener('click', closeDrawer));
 </script>
+
 </body>
 </html>
